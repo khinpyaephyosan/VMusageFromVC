@@ -1,31 +1,40 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+To run python script which fetch VM resource utilization from vCenter server and generate csv file. At final, have to sent report to administration for decision making process.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+vsphere python SDK need to install. (link: https://github.com/vmware/vsphere-automation-sdk-python)
 
 Role Variables
 --------------
+you can customize varialbles under vars/main.yml !
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+reporter: 
+   - exampleuser@exampledomain.com
+subject: 'VM utilization report from vCenter Servers'
+body: 'This is VM utilization report from vCenter Servers!'
 
-Dependencies
-------------
+and you need to define vcenter username and password in defaults/main.yml. later you can use vault file under defaults/vault.yml then encrypt it.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+uip: 'x.x.x.x'
+uusername: 'example@vsphere.local'
+upassword: 'example password'
+
+pip: 'x.x.x.x'
+pusername: 'example@vsphere.local'
+ppassword: 'example password'
 
 Example Playbook
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+   ---
+   - hosts: all
+     remote_user: exampleuser
+     gather_facts: no
+     roles:
+       - VMusageFromVC
 
 License
 -------
@@ -35,4 +44,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+https://about.me/lillianphyoe
