@@ -9,32 +9,26 @@ Requirements
 vsphere python SDK need to install. (link: https://github.com/vmware/vsphere-automation-sdk-python)
 
 Role Variables
---------------
-you can customize varialbles under vars/main.yml !
+--------------   
 
-reporter: 
-   - exampleuser@exampledomain.com
-subject: 'VM utilization report from vCenter Servers'
-body: 'This is VM utilization report from vCenter Servers!'
+You can customize varialbles under vars/main.yml ! You need to define vcenter username and password in defaults/main.yml. later you can use vault file under defaults/vault.yml then encrypt it.   
 
-and you need to define vcenter username and password in defaults/main.yml. later you can use vault file under defaults/vault.yml then encrypt it.
+reporter: exampleuser@exampledomain.com   
+subject: 'VM utilization report from vCenter Servers'   
+body: 'This is VM utilization report from vCenter Servers!'   
 
-uip: 'x.x.x.x'
-uusername: 'example@vsphere.local'
-upassword: 'example password'
+uip: 'x.x.x.x'   
+uusername: 'example@vsphere.local'   
+upassword: 'example password'   
 
-pip: 'x.x.x.x'
-pusername: 'example@vsphere.local'
-ppassword: 'example password'
+pip: 'x.x.x.x'   
+pusername: 'example@vsphere.local'   
+ppassword: 'example password'   
 
 Example Playbook
 ----------------
-   ---
-   - hosts: all
-     remote_user: exampleuser
-     gather_facts: no
-     roles:
-       - VMusageFromVC
+
+./monitorvc.yml
 
 License
 -------
