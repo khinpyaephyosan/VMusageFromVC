@@ -1,0 +1,49 @@
+---
+# tasks file for python27
+
+  - name: collect for prod vcenter
+    script: 'files/fetchfromVC.py {{ pip }} {{ pusername }} {{ ppassword }} '
+    args:
+      executable: python2.7
+    ignore_errors: yes
+
+  - name: collect from uat vcenter
+    script: ' files/fetchfromVC.py {{ uip }} {{ uusername }} {{ upassword }} '
+    args:
+      executable: python2.7
+    ignore_errors: yes
+  
+  - name: archive report dir
+    archive: 
+      path: '/home/srvmgmt/projects/python27/files/reports/*'
+      dest: '/home/srvmgmt/projects/python27/files/report.zip'
+      format: zip
+    delegate_to: localhost
+    ignore_errors: yes
+
+  - name: sent reports
+    mail:
+         host: 10.5.0.99
+         port: 25
+         to: '{{ reporter }}'
+         subject: '{{ subject }}'
+         body: '{{ body }}'
+         attach: "/home/srvmgmt/projects/python27/files/report.zip"
+    ignore_errors: yes
+  
+  - name: clean zip
+    file:
+      path: '/home/srvmgmt/projects/python27/files/report.zip'
+      state: absent
+
+  - name: find *.csv
+    find: 
+      paths: '/home/srvmgmt/projects/python27/files/reports' 
+      patterns: '*.csv'
+    register: todel
+
+  - name: clean file   
+    file:
+      path: '{{ item.path }}'
+      state: absent
+    with_items: '{{ todel.files }}'

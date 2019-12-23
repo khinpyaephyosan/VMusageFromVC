@@ -1,0 +1,7 @@
+---
+# vars file for python27
+
+reporter: 
+   - example@exampledomain.com
+subject: 'VM utilization report from vCenter Servers'
+body: 'This is VM utilization report from vCenter Servers!'

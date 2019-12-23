@@ -1,0 +1,13 @@
+---
+# defaults file for python27
+
+uip: 'x.x.x.x'
+uusername: 'example@vsphere.local'
+upassword: 'example password'
+
+pip: 'x.x.x.x'
+pusername: 'example@vsphere.local'
+ppassword: 'example password'
+
+
+

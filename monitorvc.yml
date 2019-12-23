@@ -1,0 +1,6 @@
+---
+- hosts: all
+  remote_user: srvmgmt
+  gather_facts: no
+  roles:
+    - python27
