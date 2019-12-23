@@ -15,8 +15,8 @@
   
   - name: archive report dir
     archive: 
-      path: '/home/srvmgmt/projects/python27/files/reports/*'
-      dest: '/home/srvmgmt/projects/python27/files/report.zip'
+      path: 'files/reports/*'
+      dest: 'files/report.zip'
       format: zip
     delegate_to: localhost
     ignore_errors: yes
@@ -28,17 +28,17 @@
          to: '{{ reporter }}'
          subject: '{{ subject }}'
          body: '{{ body }}'
-         attach: "/home/srvmgmt/projects/python27/files/report.zip"
+         attach: "files/report.zip"
     ignore_errors: yes
   
   - name: clean zip
     file:
-      path: '/home/srvmgmt/projects/python27/files/report.zip'
+      path: 'files/report.zip'
       state: absent
 
   - name: find *.csv
     find: 
-      paths: '/home/srvmgmt/projects/python27/files/reports' 
+      paths: 'files/reports' 
       patterns: '*.csv'
     register: todel
 
