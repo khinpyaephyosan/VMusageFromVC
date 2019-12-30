@@ -16,8 +16,8 @@
 
   - name: sent reports
     mail:
-         host: 10.5.0.99
-         port: 25
+         host: '{{ smtp_host}}'
+         port: '{{ smtp_port }}'
          to: '{{ reporter }}'
          subject: '{{ subject }}'
          body: '{{ body }}'
