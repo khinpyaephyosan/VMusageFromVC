@@ -1,6 +1,6 @@
 ---
-- hosts: all
-  remote_user: srvmgmt
+- hosts: localhost
+  remote_user: example_user
   gather_facts: no
   roles:
-    - python27
+    - VMusageFromVC
