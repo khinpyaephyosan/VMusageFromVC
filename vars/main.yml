@@ -1,7 +1,8 @@
 ---
-# vars file for python27
 
 reporter: 
    - example@exampledomain.com
 subject: 'VM utilization report from vCenter Servers'
 body: 'This is VM utilization report from vCenter Servers!'
+smtp_host: example@exampledomain.com
+smtp_port: 25
