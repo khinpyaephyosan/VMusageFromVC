@@ -16,15 +16,14 @@ You can customize varialbles under vars/main.yml ! You need to define vcenter us
 reporter: exampleuser@exampledomain.com   
 subject: 'VM utilization report from vCenter Servers'   
 body: 'This is VM utilization report from vCenter Servers!'   
+smtp_host: 'hostname or ip address of local smtp server'
+smtp_port: 'smtp port number'
 
-uip: 'x.x.x.x'   
-uusername: 'example@vsphere.local'   
-upassword: 'example password'   
-
-pip: 'x.x.x.x'   
-pusername: 'example@vsphere.local'   
-ppassword: 'example password'   
-
+vcenter server host, username and password. (ps: ready only credential is OKAY)   
+ip: 'x.x.x.x'   
+username: 'example@vsphere.local'   
+password: 'example password'   
+   
 Example Playbook
 ----------------
 
