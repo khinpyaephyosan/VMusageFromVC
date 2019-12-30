@@ -29,10 +29,6 @@ Example Playbook
 
 ./monitorvc.yml
 
-License
--------
-
-BSD
 
 Author Information
 ------------------
