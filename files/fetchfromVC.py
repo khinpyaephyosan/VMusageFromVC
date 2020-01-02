@@ -51,7 +51,7 @@ with open(path,'wt') as f:
         row.append(vm.name)
         row.append(vm.summary.config.numCpu)
         row.append(vm.summary.config.memorySizeMB)
-        row.append(vm.summary.storage.uncommitted/1024/1024/1024+vm.summary.storage.unshared/1024/1024/1024+1)
+        row.append(vm.summary.storage.committed/1024/1024/1024+vm.summary.storage.uncommitted/1024/1024/1024+vm.summary.storage.unshared/1024/1024/1024+1)
 
         #print "committed storage: "+str(vm.summary.storage.committed/1024/1024/1024)+" GB"
 
